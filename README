@@ -1,1 +1,75 @@
-This repository contains PowerShell automation scripts used for Microsoft 365 governance, Teams provisioning, and AD/Graph reporting at scale.
+# PowerShell-Graph-Automation
+
+This repository contains production-level PowerShell scripts for automating tasks across Microsoft 365, Microsoft Teams, Azure AD, and SharePoint Online. These scripts are designed to support scalable, secure, and auditable automation workflows in hybrid environments.
+
+## About
+
+The scripts in this repository were developed and used in a live enterprise environment (2500+ users) with real governance, access control, and compliance requirements. They reflect real use cases, including request-based provisioning, user/group visibility, and AD-MS Teams integration.
+
+Key objectives addressed by this repository:
+
+- Automate Microsoft Teams provisioning with governance tagging and role assignment.
+- Integrate on-prem Active Directory and Microsoft 365 resources in structured workflows.
+- Improve visibility into group ownership, membership, and lifecycle.
+- Support secure, repeatable processes driven by structured CSV data (MS Forms exports).
+- Reduce manual IT operations and align with least privilege and lifecycle policies.
+
+## Technologies
+
+- PowerShell (5.1+)
+- MicrosoftTeams PowerShell Module
+- ActiveDirectory Module (RSAT)
+- PnP.PowerShell
+- CSV-based workflow inputs (e.g. MS Forms to Excel)
+
+## Script Categories
+
+### Automation
+
+- `AD_AUTOMATE_Create_MS_Teams_with_RES_Group.ps1`  
+  Full lifecycle automation: Team creation, AD group provisioning, metadata tagging, and owner assignment.
+
+### Reporting
+
+- `AD_REPORT_MSteams_ID_to_RES_group_with_all.ps1`  
+  Maps Teams GroupId to AD security groups via extensionAttribute11 and displays ownership and nested group structure.
+  
+- `AD_REPORT_User_Groups.ps1`  
+  Lists all groups a user belongs to (including role-based filtering).
+
+- `AD_REPORT_SamAccountNames_from_CSV.ps1`  
+  Batch resolution of users from exported systems or request lists.
+
+### Exports
+
+- `MST_EXPORT_all_public_teams_to_SP_list.ps1`  
+  Pulls all public Teams and uploads metadata into a SharePoint list.
+
+- `MST_EXPORT_teams_owners.ps1`  
+  Extracts owner information from all MS Teams instances.
+
+## Use Cases
+
+- IT teams handling structured provisioning requests from users (via MS Forms or ticketing).
+- Organizations implementing Zero Trust and RBAC models in Microsoft 365.
+- Hybrid identity setups with both cloud and on-prem group ownership.
+- Environments preparing for Microsoft Purview, lifecycle policies, or security audits.
+
+## Highlights
+
+- Structured logging with timestamps
+- CLI-based credential injection and storage
+- Attribute-based security tagging for confidentiality and data classification
+- Modular cleanup and variable isolation to support batch execution
+- Robust error handling and validation
+- Compatible with internal automation engines or manual runs
+
+## Disclaimer
+
+All sensitive internal paths, domains, and identifiers have been removed. This repository is for reference and demonstration purposes only and should be adjusted for your organizational context.
+
+## Author
+
+Ivan Garkusha  
+Cloud Automation Engineer – M365 | Azure AD | PowerShell | Security-Aware Infrastructure  
+Atlanta, Georgia, United States  
